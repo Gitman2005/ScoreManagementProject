@@ -1,33 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define total 3//å­¦ç”Ÿæ€»æ•°ï¼Œæ–¹ä¾¿ä¸€æ”¹å…¨æ”¹
-#define sum 10//å­¦ç”Ÿå§“åçš„æœ€å¤§é•¿åº¦
+#define total 4
+#define sum 10
 
 void menu();
-void operation1();//å­¦ç”Ÿä¿¡æ¯å½•å…¥
+void operation1();
 void operation2();
 void operation3();
 void operation4();
 void operation5();
 void starbar(void);
 
-int NO[total];//å®šä¹‰å­¦å·
-int ElectiveScore[total];//é€‰ä¿®è¯¾æˆç»©
-int ExperimentalScores[total];//å®éªŒè¯¾æˆç»©
-int CompulsoryScores[total];//å¿…ä¿®è¯¾æˆç»©
-int weight1,weight2,weight3;//å®šä¹‰ä¸‰ç§æˆç»©çš„æƒé‡
-int OverallRating[total];//å®šä¹‰ç»¼åˆè¯„åˆ†
-char OvGrade[total];//å®šä¹‰æ€»è¯„ç­‰çº§
+int NO[total];
+int ElectiveScore[total];//Ñ¡ĞŞ¿Î³É¼¨
+int ExperimentalScores[total];//ÊµÑé¿Î³É¼¨
+int CompulsoryScores[total];//±ØĞŞ¿Î³É¼¨
+int weight1,weight2,weight3;//¶¨ÒåÈıÖÖ³É¼¨µÄÈ¨ÖØ
+int OverallRating[total];//¶¨Òå×ÛºÏÆÀ·Ö
+char OvGrade[total];//¶¨Òå×ÜÆÀµÈ¼¶
 
 int main(void)
 {
+        printf("Firstly,please decide the weights(percentage) of three kinds of scores:\n");
+        scanf("%d%d%d",&weight1,&weight2,&weight3);
+
+    char names[4][10]={0};
+    int i;
+    int n;
+    for (i=0;i<total;i++){
+        n=i;
+        NO[n]=i;
+        scanf("%s%d%d%d",&names[n][10],&ElectiveScore[n],&ExperimentalScores[n],&CompulsoryScores[n]);
+        OverallRating[n]=ElectiveScore[n]*weight1/100+ExperimentalScores[n]*weight2/100+ExperimentalScores[n]*weight3/100;
+        if(OverallRating[n]>=90)
+            OvGrade[n]='A';
+        else if(OverallRating[n]>=80)
+            OvGrade[n]='B';
+        else if(OverallRating[n]>=70)
+            OvGrade[n]='C';
+        else if(OverallRating[n]>=60)
+            OvGrade[n]='D';
+        else
+            OvGrade[n]='E';
+        printf("%s--%d--%c\n",names[n][10],NO[n],OvGrade[n]);
+        }
+
     int choice;
-    printf("Firstly,please decide the weights(percentage) of three kinds of scores:\n");
-    scanf("%d%d%d",&weight1,&weight2,&weight3);
-    printf("Call the function1 to add record.\n");
-    operation1();
 
     do{
+
         menu();
         scanf("%d",&choice);
         printf("\n\n");
@@ -35,31 +56,22 @@ int main(void)
         {
         case 0: printf("Thank you. Exiting...\n");
                 break;
-        case 2: printf("Call the function2 to search the given record.\n");//æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
-                int f=operation2();
-                if(f=-1){
-                    printf("NO ANSWER!");
-                }
-                else{
-                    printf("%10s"names[mid][20]);
-                }
+
+        case 2: printf("Call the function2 to search the given record.\n");//²éÕÒÑ§ÉúĞÅÏ¢
                 starbar();
                 break;
-        case 3: printf("Call the function3 to delete the given record.\n");//åˆ é™¤å­¦ç”Ÿä¿¡æ¯
-                operation3();
+        case 3: printf("Call the function3 to delete the given record.\n");//É¾³ıÑ§ÉúĞÅÏ¢
                 starbar();
                 break;
-        case 4: printf("Call the function4 to modify the given record.\n");//ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯
-                operation4();
+        case 4: printf("Call the function4 to modify the given record.\n");//ĞŞ¸ÄÑ§ÉúĞÅÏ¢
                 starbar();
                 break;
-        case 5: printf("Call the function5 to show all records in order.\n");//å­¦ç”Ÿä¿¡æ¯ç»Ÿè®¡ä¸æ˜¾ç¤º
-                operation5();
+        case 5: printf("Call the function5 to show all records in order.\n");//Ñ§ÉúĞÅÏ¢Í³¼ÆÓëÏÔÊ¾
                 starbar();
                 break;
         default: printf("No such choice. Please enter a right choice (0-5)!\n");
         }
-        if(choice)
+            if(choice)
             printf("\n\nPress any key to continue.");
         getch();
     }while(choice);
@@ -71,6 +83,7 @@ void menu(){
     system("cls");
     printf("\t\t|-------------Menu of the score management system-------------|\n");
     printf("\t\t|        0   Exit                                             |\n");
+    printf("\t\t|        1   Add record                                       |\n");
     printf("\t\t|        2   Search record                                    |\n");
     printf("\t\t|        3   Delete record                                    |\n");
     printf("\t\t|        4   Modify record                                    |\n");
@@ -87,69 +100,5 @@ void starbar(void)
     putchar('\n');
 }
 
-void operation1()
-{
-    char names[total][sum];
-    int i;
-    int n;
-    for (i=1;i<total;i++){
-        n=i-1;
-        NO[n]=i;
-        scanf("%s%d%d%d",names[n][sum],&ElectiveScore[n],&ExperimentalScores[n],&CompulsoryScores[n]);
-        OverallRating[n]=ElectiveScore[n]*weight1/100.0+ExperimentalScores[n]*weight2/100.0+ExperimentalScores[n]*weight3/100.0;
-        if(OverallRating[n]>=90)
-            OvGrade[n]='A';
-        else if(OverallRating[n]>=80)
-            OvGrade[n]='B';
-        else if(OverallRating[n]>=70)
-            OvGrade[n]='C';
-        else if(OverallRating[n]>=60)
-            OvGrade[n]='D';
-        else
-            OvGrade[n]='E';
-        printf("%s--%d--%c\n",names[n][sum],NO[n],OvGrade[n]);
-    }
-}
-int operation2(){
-    int k;
-    scanf("%d",&k);
-    while(grade[min][3]<=grade[max][3]){
-        max=0;
-        min=N-1;
-        mid=(N-1)/2;
-        if((k>grade[max][3])||(k<grade[min][3])){
-            return -1;
-        }
-        else if(k>grade[mid][3]){
-            min=mid-1;
-        }
-        else if(k<grade[mid][3]){
-            max=mid+1;
-        }
-        else{
-            return 1;
-        }
-    }
-}
-void operation2(char names[][20],float OverallRating[N][4])
-{
-    int grade;
-    scanf("%d",&grade);
-    for(int i=0;i<(N-1);i++){
-        if(OverallRating[i][3]==grade)
-            printf("%s",names[i][20]);
-        else continue;
-    }return 0;
 
-}
-void operation2(char name[3][10],int ElectiveScore[3],int ExperimentalScores[3],int CompulsoryScores[3],int OverallRating[3],char OvGrade[3])
-{int i;
- char na;
-    printf("Input the student's name you want to search:");
-    scanf("%s",na);
-    for(i=0;i<2;i++){
-    if(na==name[i][20])
-        printf("%s--%d--%d--%d--%d--%s",name[i],ElectiveScore[i],ExperimentalScores[i],ExperimentalScores[i],OverallRating[i],OvGrade[i]);
-        break;
-    }
-}
+
