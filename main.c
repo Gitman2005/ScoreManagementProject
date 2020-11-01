@@ -142,7 +142,7 @@ void operation2(char names[][20],float OverallRating[N][4])
     }return 0;
 
 }
-void operation2(char name[3][20],int ElectiveScore[3],int ExperimentalScores[3],int CompulsoryScores[3],int OverallRating[3],char OvGrade[3])
+void operation2(char name[3][10],int ElectiveScore[3],int ExperimentalScores[3],int CompulsoryScores[3],int OverallRating[3],char OvGrade[3])
 {int i;
  char na;
     printf("Input the student's name you want to search:");
