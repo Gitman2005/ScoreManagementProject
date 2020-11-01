@@ -144,9 +144,9 @@ void operation2(char names[][20],float OverallRating[N][4])
 }
 void operation2(char name[3][10],int ElectiveScore[3],int ExperimentalScores[3],int CompulsoryScores[3],int OverallRating[3],char OvGrade[3])
 {int i;
- char na;
+ char na[10];
     printf("Input the student's name you want to search:");
-    scanf("%s",na);
+    scanf("%s",na[10]);
     for(i=0;i<2;i++){
     if(na==name[i][20])
         printf("%s--%d--%d--%d--%d--%s",name[i],ElectiveScore[i],ExperimentalScores[i],ExperimentalScores[i],OverallRating[i],OvGrade[i]);
