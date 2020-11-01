@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define total 3//Ñ§Éú×ÜÊı£¬·½±ãÒ»¸ÄÈ«¸Ä
-#define sum 10//Ñ§ÉúĞÕÃûµÄ×î´ó³¤¶È
+#define total 3//å­¦ç”Ÿæ€»æ•°ï¼Œæ–¹ä¾¿ä¸€æ”¹å…¨æ”¹
+#define sum 10//å­¦ç”Ÿå§“åçš„æœ€å¤§é•¿åº¦
 
 void menu();
-void operation1();//Ñ§ÉúĞÅÏ¢Â¼Èë£¨Ä¿Ç°ÄÜÖ´ĞĞµÄ¹¦ÄÜ£©
+void operation1();//å­¦ç”Ÿä¿¡æ¯å½•å…¥
 void operation2();
 void operation3();
 void operation4();
 void operation5();
 void starbar(void);
 
-int NO[total];//¶¨ÒåÑ§ºÅ
-int ElectiveScore[total];//Ñ¡ĞŞ¿Î³É¼¨
-int ExperimentalScores[total];//ÊµÑé¿Î³É¼¨
-int CompulsoryScores[total];//±ØĞŞ¿Î³É¼¨
-int weight1,weight2,weight3;//¶¨ÒåÈıÖÖ³É¼¨µÄÈ¨ÖØ
-int OverallRating[total];//¶¨Òå×ÛºÏÆÀ·Ö
-char OvGrade[total];//¶¨Òå×ÜÆÀµÈ¼¶
+int NO[total];//å®šä¹‰å­¦å·
+int ElectiveScore[total];//é€‰ä¿®è¯¾æˆç»©
+int ExperimentalScores[total];//å®éªŒè¯¾æˆç»©
+int CompulsoryScores[total];//å¿…ä¿®è¯¾æˆç»©
+int weight1,weight2,weight3;//å®šä¹‰ä¸‰ç§æˆç»©çš„æƒé‡
+int OverallRating[total];//å®šä¹‰ç»¼åˆè¯„åˆ†
+char OvGrade[total];//å®šä¹‰æ€»è¯„ç­‰çº§
 
 int main(void)
 {
@@ -35,7 +35,7 @@ int main(void)
         {
         case 0: printf("Thank you. Exiting...\n");
                 break;
-        case 2: printf("Call the function2 to search the given record.\n");//²éÕÒÑ§ÉúĞÅÏ¢
+        case 2: printf("Call the function2 to search the given record.\n");//æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
                 int f=operation2();
                 if(f=-1){
                     printf("NO ANSWER!");
@@ -45,15 +45,15 @@ int main(void)
                 }
                 starbar();
                 break;
-        case 3: printf("Call the function3 to delete the given record.\n");//É¾³ıÑ§ÉúĞÅÏ¢
+        case 3: printf("Call the function3 to delete the given record.\n");//åˆ é™¤å­¦ç”Ÿä¿¡æ¯
                 operation3();
                 starbar();
                 break;
-        case 4: printf("Call the function4 to modify the given record.\n");//ĞŞ¸ÄÑ§ÉúĞÅÏ¢
+        case 4: printf("Call the function4 to modify the given record.\n");//ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯
                 operation4();
                 starbar();
                 break;
-        case 5: printf("Call the function5 to show all records in order.\n");//Ñ§ÉúĞÅÏ¢Í³¼ÆÓëÏÔÊ¾
+        case 5: printf("Call the function5 to show all records in order.\n");//å­¦ç”Ÿä¿¡æ¯ç»Ÿè®¡ä¸æ˜¾ç¤º
                 operation5();
                 starbar();
                 break;
