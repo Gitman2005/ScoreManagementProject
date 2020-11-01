@@ -12,12 +12,12 @@ void operation5();
 void starbar(void);
 
 int NO[total];
-int ElectiveScore[total];//Ñ¡ĞŞ¿Î³É¼¨
-int ExperimentalScores[total];//ÊµÑé¿Î³É¼¨
-int CompulsoryScores[total];//±ØĞŞ¿Î³É¼¨
-int weight1,weight2,weight3;//¶¨ÒåÈıÖÖ³É¼¨µÄÈ¨ÖØ
-int OverallRating[total];//¶¨Òå×ÛºÏÆÀ·Ö
-char OvGrade[total];//¶¨Òå×ÜÆÀµÈ¼¶
+int ElectiveScore[total];//é€‰ä¿®è¯¾æˆç»©
+int ExperimentalScores[total];//å®éªŒè¯¾æˆç»©
+int CompulsoryScores[total];//å¿…ä¿®è¯¾æˆç»©
+int weight1,weight2,weight3;//å®šä¹‰ä¸‰ç§æˆç»©çš„æƒé‡
+int OverallRating[total];//å®šä¹‰ç»¼åˆè¯„åˆ†
+char OvGrade[total];//å®šä¹‰æ€»è¯„ç­‰çº§
 
 int main(void)
 {
@@ -57,16 +57,16 @@ int main(void)
         case 0: printf("Thank you. Exiting...\n");
                 break;
 
-        case 2: printf("Call the function2 to search the given record.\n");//²éÕÒÑ§ÉúĞÅÏ¢
+        case 2: printf("Call the function2 to search the given record.\n");//æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
                 starbar();
                 break;
-        case 3: printf("Call the function3 to delete the given record.\n");//É¾³ıÑ§ÉúĞÅÏ¢
+        case 3: printf("Call the function3 to delete the given record.\n");//åˆ é™¤å­¦ç”Ÿä¿¡æ¯
                 starbar();
                 break;
-        case 4: printf("Call the function4 to modify the given record.\n");//ĞŞ¸ÄÑ§ÉúĞÅÏ¢
+        case 4: printf("Call the function4 to modify the given record.\n");//ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯
                 starbar();
                 break;
-        case 5: printf("Call the function5 to show all records in order.\n");//Ñ§ÉúĞÅÏ¢Í³¼ÆÓëÏÔÊ¾
+        case 5: printf("Call the function5 to show all records in order.\n");//å­¦ç”Ÿä¿¡æ¯ç»Ÿè®¡ä¸æ˜¾ç¤º
                 starbar();
                 break;
         default: printf("No such choice. Please enter a right choice (0-5)!\n");
@@ -83,7 +83,6 @@ void menu(){
     system("cls");
     printf("\t\t|-------------Menu of the score management system-------------|\n");
     printf("\t\t|        0   Exit                                             |\n");
-    printf("\t\t|        1   Add record                                       |\n");
     printf("\t\t|        2   Search record                                    |\n");
     printf("\t\t|        3   Delete record                                    |\n");
     printf("\t\t|        4   Modify record                                    |\n");
